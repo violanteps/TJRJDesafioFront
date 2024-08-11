@@ -1,0 +1,26 @@
+<!-- <div class="row">
+    <div class="col-lg-4">1</div>
+   
+    <div class="col-lg-4"> 
+        
+            <label for="nomeAutor" class="form-label">Nome Autor</label>
+            <input type="text" class="form-control" id="nomeAutor" [(ngModel)]="model.nome" >
+    </div>
+    
+    <div class="col-lg-4">3</div>
+</div> -->
+
+<div class="container mt-4">
+    <h2 *ngIf="!editMode">Cadastrar Novo Autor</h2>
+    <h2 *ngIf="editMode">Editar Autor</h2>
+    
+    <form (ngSubmit)="onSubmit()" #autorForm="ngForm">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" id="nome" class="form-control" [(ngModel)]="model.nome" name="nome" required>
+      </div>
+           
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <button type="button" class="btn btn-secondary ms-2" (click)="cancelar()">Cancelar</button>
+    </form>
+  </div>

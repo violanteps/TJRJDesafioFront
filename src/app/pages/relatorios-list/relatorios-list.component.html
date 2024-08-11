@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Relatórios</h2>
+        <input type="text" class="form-control w-25" placeholder="Buscar relatório" [(ngModel)]="filtro" (ngModelChange)="filtrarRelatorios()">
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th scope="col">Tipo Relatório</th>
+                <th scope="col">Assunto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let relatorio of relatoriosFiltrados">
+                <td>{{ relatorio.tipoRel }}</td>
+                <td>{{ relatorio.assunto }}</td>
+                <td>
+                    <div class="text-end">
+                    <button class="btn btn-primary btn-sm" (click)="visualizarRelatorio(relatorio)">
+                        Visualizar
+                    </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
