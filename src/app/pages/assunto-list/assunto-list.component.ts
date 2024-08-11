@@ -17,7 +17,7 @@ export class AssuntoListComponent implements OnInit {
   model = new AssuntoModel();
   assuntos: AssuntoModel[] = [];
 
-  constructor(private apiService: ApiService, private router: Router) {} // Certifique-se de que o ApiService é injetável
+  constructor(private apiService: ApiService, private router: Router) {} 
 
   ngOnInit(): void {
     this.carregarAssuntos();
@@ -26,7 +26,7 @@ export class AssuntoListComponent implements OnInit {
   carregarAssuntos(): void {
     this.apiService.getAssuntoList().subscribe({
       next: (data) => {
-        console.log('Dados recebidos:', data); // Verifique os dados no console
+        console.log('Dados recebidos:', data); 
         this.assuntos = data;
       },
       error: (error) => {

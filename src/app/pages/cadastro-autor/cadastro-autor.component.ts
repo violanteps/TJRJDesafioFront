@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/services/api.service';
 import { AutorModel } from '../../model/autor.model';
-import { FormsModule } from '@angular/forms'; // Importando FormsModule
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -41,7 +41,7 @@ export class CadastroAutorComponent implements OnInit {
         }
       });
     } else {
-      console.error('O estado não contém o parâmetro codAu.');
+      console.error('Não contém o parâmetro codAu.');
     }
   }
 

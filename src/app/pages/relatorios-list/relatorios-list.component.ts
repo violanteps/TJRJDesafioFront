@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/services/api.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';  // Adicione esta importação
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-relatorios-list',
@@ -26,7 +26,7 @@ export class RelatoriosListComponent implements OnInit {
     this.apiService.getRelatoriosList().subscribe({
       next: (data) => {
         this.relatorios = data;
-        this.filtrarRelatorios(); // Aplica o filtro assim que os dados são carregados
+        this.filtrarRelatorios();
       },
       error: (error) => {
         console.error('Erro ao carregar os relatórios', error);

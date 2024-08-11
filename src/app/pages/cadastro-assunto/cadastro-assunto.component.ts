@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/services/api.service';
 import { AssuntoModel } from '../../model/assunto.model';
-import { FormsModule } from '@angular/forms'; // Importe o FormsModule
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 
@@ -42,7 +42,7 @@ export class CadastroAssuntoComponent implements OnInit {
         }
       });
     } else {
-      console.error('O estado não contém o parâmetro codAs.');
+      console.error('Não contém o parâmetro codAs.');
     }
   }
 

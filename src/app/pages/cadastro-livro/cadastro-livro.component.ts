@@ -112,7 +112,7 @@ export class CadastroLivroComponent implements OnInit {
   
   selecionarAssunto(assunto: AssuntoModel): void {
     this.model.livroAssunto.assuntoCodAs = assunto.codAs;
-    this.model.assuntoNome = assunto.descricao; // Armazena o nome do assunto
+    this.model.assuntoNome = assunto.descricao; 
   }
 
   selecionarAutor(autor: AutorModel): void {
@@ -174,7 +174,6 @@ export class CadastroLivroComponent implements OnInit {
       }
     }
   }
-  
   
   cancelar(): void {
     this.router.navigate(['/livro-list']);

@@ -3,6 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/services/api.service';
 import { CommonModule } from '@angular/common';
 
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
+
 @Component({
   selector: 'app-relatorios',
   standalone: true,
@@ -15,15 +18,23 @@ export class RelatoriosComponent implements OnInit {
   tipoRel: number = 0;
 
   constructor(
-    private router: Router, // Adicionei o Router aqui
+    private router: Router,
     private route: ActivatedRoute,
     private apiService: ApiService
   ) {}
 
   ngOnInit(): void {
     const state = history.state as { tipoRel?: number };
+    
+    console.log(state);
+    //Se eu tentar acessar a pagina diretamente eu sou direcionado para a lista
+    if (!state || typeof state.tipoRel === 'undefined') {
+      this.router.navigate(['/relatorios-list']);
+      return;
+    }
+
     if (state && state.tipoRel) {
-      this.tipoRel = state.tipoRel
+      this.tipoRel = state.tipoRel;
       switch (state.tipoRel) {
         case 1:
           this.apiService.getRelatorioPorAutorComAssunto(state.tipoRel).subscribe({
@@ -37,7 +48,6 @@ export class RelatoriosComponent implements OnInit {
             error: (error) => console.error('Erro ao carregar o relatório por autor com valor', error)
           });
           break;
-        // Adicione mais cases para outros tipos de relatórios
         default:
           console.error('Tipo de relatório desconhecido.');
       }
@@ -51,8 +61,32 @@ export class RelatoriosComponent implements OnInit {
   }
 
   gerarRelatorioPDF(): void {
-    // Implemente a lógica para gerar o relatório em PDF aqui
-    console.log('Gerando relatório em PDF...');
-  }
+    const doc = new jsPDF();
+
+    
+    const title = this.tipoRel === 1 ? 'Relatório de Livros por Autor e Assunto' : 'Relatório de Livros por Autor e Valor';
+    doc.text(title, 14, 20); 
+    
+    if (this.tipoRel === 1) {
+        autoTable(doc, {
+            startY: 30, 
+            head: [['Autor', 'Livro', 'Assunto']],
+            body: this.relatorioData.map(relatorio => [relatorio.autor, relatorio.livro, relatorio.assunto]),
+        });
+    } else if (this.tipoRel === 2) {
+        autoTable(doc, {
+            startY: 30, 
+            head: [['Autor', 'Livro', 'Valor', 'Tipo de Venda']],
+            body: this.relatorioData.map(relatorio => [
+                relatorio.autor, 
+                relatorio.livro, 
+                `R$ ${relatorio.valor}`, 
+                relatorio.tipoVenda
+            ]),
+        });
+    }
+
+    doc.save('relatorio-livros.pdf');
+}
 
 }
