@@ -180,4 +180,12 @@ export class CadastroLivroComponent implements OnInit {
   cancelar(): void {
     this.router.navigate(['/livro-list']);
   }
+
+  validaInsert(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    inputElement.value = inputElement.value.replace(/[^0-9]/g, '');
+    this.model.anoPublicacao = inputElement.value;
+  }
+
+
 }

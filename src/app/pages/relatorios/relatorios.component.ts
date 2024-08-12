@@ -27,7 +27,7 @@ export class RelatoriosComponent implements OnInit {
     const state = history.state as { tipoRel?: number };
     
     console.log(state);
-    //Se eu tentar acessar a pagina diretamente eu sou direcionado para a lista
+    //Se eu tentar acessar a pagina diretamente eu sou direcionado para a lista - testar
     if (!state || typeof state.tipoRel === 'undefined') {
       this.router.navigate(['/relatorios-list']);
       return;

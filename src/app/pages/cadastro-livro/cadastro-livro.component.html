@@ -16,8 +16,10 @@
           </div>
           <div class="mb-3">
             <label for="anoPublicacao" class="form-label">Ano de Publicação</label>
-            <input type="text" class="form-control" id="anoPublicacao" [(ngModel)]="model.anoPublicacao" name="anoPublicacao" required>
+            <input type="text" class="form-control" id="anoPublicacao" [(ngModel)]="model.anoPublicacao" name="anoPublicacao" required 
+                   pattern="\d*" maxlength="4" (input)="validaInsert($event)">
           </div>
+
           <div class="mb-3">
             <label for="assuntoSelecionado" class="form-label">Assunto do Livro</label>
             <input type="text" class="form-control" id="assuntoSelecionado" [(ngModel)]="model.assuntoNome" name="assuntoSelecionado" readonly required>

@@ -1,0 +1,55 @@
+
+<!-- <body> -->
+    <div class="container mt-5">
+        <h1 class="mb-4">Resumo do Projeto TJRJ - Desafio Técnico</h1>
+
+        <h2 class="mb-3">Tecnologias Utilizadas</h2>
+        <ul class="list-group mb-4">
+            <li class="list-group-item"><strong>LocalDB:</strong> Utilizado como banco de dados local para armazenar as informações da aplicação.</li>
+            <li class="list-group-item"><strong>Angular 18:</strong> Framework utilizado para o desenvolvimento do frontend.</li>
+            <li class="list-group-item"><strong>.NET 8:</strong> Framework usado para o desenvolvimento do backend, oferecendo suporte para a criação de APIs RESTful e outras funcionalidades essenciais.</li>
+            <li class="list-group-item"><strong>Bootstrap:</strong> Biblioteca de estilos CSS utilizada para criar um layout responsivo.</li>
+            <li class="list-group-item"><strong>JsPDF:</strong> Biblioteca JavaScript usada para gerar relatórios diretamente no frontend.</li>
+            <li class="list-group-item"><strong>Swagger:</strong> Usado para documentar e testar os endpoints das APIs.</li>
+            <li class="list-group-item"><strong>AutoMapper:</strong> Usado no mapeamento de objetos entre diferentes camadas da aplicação.</li>
+            <li class="list-group-item"><strong>ILogger:</strong> Implementado para registrar logs em diversas camadas da aplicação, ajudando a rastreabilidade e identificação de problemas.</li>
+        </ul>
+
+        <h2 class="mb-3">Padrões de Projeto Adotados</h2>
+        <ul class="list-group mb-4">
+            <li class="list-group-item"><strong>Componente Service no Front para chamadas de endpoints:</strong> Criei um
+                serviço Angular centralizado que é responsável por todas as chamadas aos endpoints da API, promovendo a
+                reutilização de código e a separação de responsabilidades.</li>
+            <li class="list-group-item"><strong>Componente Header no Front:</strong> Implementado para gerenciar a
+                navegação e exibir informações constantes em todas as páginas.</li>
+            <li class="list-group-item"><strong>Componente Footer no Front:</strong> Criado para exibir informações de
+                rodapé e manter a consistência visual em todas as páginas.</li>
+                <li class="list-group-item"><strong>History state:</strong> Utilizado para passar dados entre diferentes componentes no Angular sem expor os parâmetros na URL.</li>
+        </ul>
+
+        <h2 class="mb-3">Arquitetura em Camadas no Backend</h2>
+        <ul class="list-group mb-4">
+            <li class="list-group-item"><strong>Controller:</strong> Camada responsável por receber as requisições HTTP e enviar as respostas, delegando a lógica de negócios para o serviço.</li>
+            <li class="list-group-item"><strong>Service:</strong> Contém a lógica de negócios da aplicação e coordena as chamadas ao repositório.</li>
+            <li class="list-group-item"><strong>Repository:</strong> Realiza o acesso aos dados através de operações CRUD diretamente no banco de dados.</li>
+            <li class="list-group-item"><strong>Dapper:</strong> Ferramenta de micro-ORM utilizada na camada de persistência para executar queries e mapeá-las para objetos.</li>
+            <li class="list-group-item"><strong>Controle de Transações:</strong> Implementado para garantir a consistência dos dados, especialmente em operações que envolvem múltiplas etapas.</li>
+            <li class="list-group-item"><strong>Tratamento de erros:</strong> Implementado para garantir a detecção e rápida solução de possíveis erros no acesso aos dados.</li>
+        </ul>
+
+        <h2 class="mb-3">Funcionalidades</h2>
+        <ul class="list-group mb-4">
+            <li class="list-group-item"><strong>CRUD Completo:</strong> Implementação das operações de criar, ler, atualizar e deletar para as entidades Livro, Autor, Assunto e Valor Livro.</li>
+            <li class="list-group-item"><strong>Relatórios:</strong> Geração de relatórios agrupados por autor, exportáveis através de funcionalidade em tela.</li>
+            <li class="list-group-item"><strong>Interface Responsiva:</strong> Desenvolvimento de uma interface de usuário moderna e adaptável a diferentes dispositivos, utilizando Bootstrap.</li>
+        </ul>
+
+        <h2 class="mb-3">Considerações Adicionais</h2>
+        <p class="mb-4">No modelo de dados inicial, foram adicionados os campos <strong>statusReg</strong>, <strong>DataCriacao</strong> e <strong>UltimaAtualizacao</strong>, com o objetivo de evitar exclusões físicas dos
+            dados e proporcionar uma melhor rastreabilidade, além de facilitar a análise de auditoria de dados. Em um modelo mais robusto, poderia ter sido incluído o log de usuário e uma tabela de log de alterações para
+            rastrear os dados que foram modificados, oferecendo um controle ainda maior sobre as operações realizadas.</p>
+    </div>
+
+
+<!-- </body> -->
+

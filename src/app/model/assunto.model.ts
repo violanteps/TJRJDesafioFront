@@ -3,6 +3,4 @@ export class AssuntoModel {
     descricao : string;
     statusReg : number;
     dataCriacao : Date;
-   
-    // livroAssuntos: LivroAssuntoEntity[];
 }
