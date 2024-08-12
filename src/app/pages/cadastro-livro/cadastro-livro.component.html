@@ -22,7 +22,7 @@
             <label for="assuntoSelecionado" class="form-label">Assunto do Livro</label>
             <input type="text" class="form-control" id="assuntoSelecionado" [(ngModel)]="model.assuntoNome" name="assuntoSelecionado" readonly required>
           </div>
-          
+                          
           <div class="mb-3">
             <label for="autoresSelecionados" class="form-label">Autores do Livro</label>
             <ul class="list-group">
@@ -30,9 +30,14 @@
                 {{ getAutorNome(autor.autorCodAu) }} 
                 <button class="btn btn-sm btn-danger" type="button" (click)="removerAutor(autor)">Remover</button>
               </li>
+              <li *ngIf="model.livroAutores.length === 0" class="list-group-item">
+                 Inclua autores...
+              </li>
             </ul>
           </div>
           
+
+
           <button type="submit" class="btn btn-primary">Salvar</button>
           <button type="button" class="btn btn-secondary ms-2" (click)="cancelar()">Cancelar</button>
         </form>

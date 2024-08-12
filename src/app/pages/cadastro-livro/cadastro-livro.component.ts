@@ -81,6 +81,8 @@ export class CadastroLivroComponent implements OnInit {
           console.error('Erro ao carregar o livro', error);
         }
       });
+    } else {
+      this.model.livroAutores = [];
     }
   }
   

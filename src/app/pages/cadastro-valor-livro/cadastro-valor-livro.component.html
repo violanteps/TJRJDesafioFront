@@ -1,0 +1,46 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2>Cadastro de Valores do Livro</h2>
+      <button class="btn btn-secondary" (click)="voltar()">Voltar</button>
+    </div>
+  <div>
+    
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="mb-3">
+          <label for="titulo" class="form-label">Título</label>
+          <input type="text" class="form-control" id="titulo" [value]="livro.titulo" readonly>
+        </div>
+        <div class="mb-3">
+          <label for="editora" class="form-label">Editora</label>
+          <input type="text" class="form-control" id="editora" [value]="livro.editora" readonly>
+        </div>
+        <div class="mb-3">
+          <label for="edicao" class="form-label">Edição</label>
+          <input type="text" class="form-control" id="edicao" [value]="livro.edicao" readonly>
+        </div>
+        <div class="mb-3">
+          <label for="anoPublicacao" class="form-label">Ano de Publicação</label>
+          <input type="text" class="form-control" id="anoPublicacao" [value]="livro.anoPublicacao" readonly>
+        </div>
+      </div>
+  
+      
+      <div class="col-lg-6">
+        <div *ngFor="let tipo of tiposVenda" class="mb-3">
+          <label>{{ tipo.nome }}</label>
+          <div class="input-group">
+            <input type="number" class="form-control" [(ngModel)]="valorPorTipo[tipo.codv]" placeholder="Valor em R$" />
+            <button class="btn btn-outline-secondary" 
+                    (click)="valorPorTipo[tipo.codv] ? salvarValor(tipo.codv) : editarValor(tipo.codv)">
+              {{ valorPorTipo[tipo.codv] ? 'Editar' : 'Salvar' }}
+            </button>
+            <button class="btn btn-outline-danger" (click)="excluirValor(tipo.codv)">Excluir</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    </div>
+  </div>
+  

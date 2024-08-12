@@ -8,6 +8,9 @@ import { AutorListComponent } from './pages/autor-list/autor-list.component';
 import { LivroListComponent } from './pages/livro-list/livro-list.component';
 import { RelatoriosListComponent } from './pages/relatorios-list/relatorios-list.component';
 import { RelatoriosComponent } from './pages/relatorios/relatorios.component';
+import { ValorLivroListComponent } from './pages/valor-livro-list/valor-livro-list.component';
+import { CadastroValorLivroComponent } from './pages/cadastro-valor-livro/cadastro-valor-livro.component';
+
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,5 +23,6 @@ export const routes: Routes = [
     { path: 'livro-list', component: LivroListComponent},
     { path: 'relatorios-list', component: RelatoriosListComponent},
     { path: 'relatorios', component: RelatoriosComponent},
-    
+    { path: 'valor-livro-list', component: ValorLivroListComponent},
+    { path: 'cadastro-valor-livro', component: CadastroValorLivroComponent},
 ];

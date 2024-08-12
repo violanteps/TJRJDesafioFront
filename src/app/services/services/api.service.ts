@@ -12,7 +12,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  
+  //Livro
   getLivroList(): Observable<any> {
     return this.http.get(`${this.baseUrl}/Livro/GetLivroList`);
   }
@@ -36,7 +36,7 @@ export class ApiService {
   }
 
   
-
+  //Autor
   getAutorList(): Observable<any> {
     return this.http.get(`${this.baseUrl}/Autor/GetAutorList`);
   }
@@ -60,7 +60,7 @@ export class ApiService {
   }
 
   
-
+  //Assunto
   getAssuntoList(): Observable<any> {
     return this.http.get(`${this.baseUrl}/Assunto/GetAssuntoList`);
   }
@@ -83,6 +83,8 @@ export class ApiService {
     return this.http.delete(`${this.baseUrl}/Assunto/DeleteAssunto`, { params });
   }
 
+
+  //Relatórios
   getRelatoriosList(): Observable<any> {
     return this.http.get(`${this.baseUrl}/Relatorio/GetRelatoriosList`);
   }  
@@ -93,5 +95,35 @@ export class ApiService {
 
   getRelatorioPorAutorComValor(tipoRel: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/Relatorio/RelatorioEstoque/${tipoRel}`);
+  }
+
+
+  // ValorLivro
+  createLivroValor(livroValor: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/ValorLivro/CreateLivroValor`, livroValor);
+  }
+
+  getLivroValor(livroCodl: number): Observable<any> {
+    let params = new HttpParams().set('livro_Codl', livroCodl.toString());
+    return this.http.get(`${this.baseUrl}/ValorLivro/GetLivroValor`, { params });
+  }
+
+  getLivroValorList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/ValorLivro/GetLivroValorList`);
+  }
+
+  getTipoVendaList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/ValorLivro/GetTipoVendaList`);
+  }
+
+  updateLivroValor(livroValor: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/ValorLivro/UpdateLivroValor`, livroValor);
+  }
+
+  deleteLivroValor(livroCodl: number, vendaCodv: number): Observable<any> {
+    let params = new HttpParams()
+      .set('livroCodl', livroCodl.toString())
+      .set('vendaCodv', vendaCodv.toString());
+    return this.http.delete(`${this.baseUrl}/ValorLivro/DeleteLivroValor`, { params });
   }
 }
